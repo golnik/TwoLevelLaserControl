@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+     <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+     <script type="text/javascript" src="src/numeric_1.2.6_numeric.js"></script>
+
+     <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({tex2jax: {inlineMath: [ ['$','$'], ["\\(","\\)"] ],processEscapes: true}});
+     </script>
+    
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>     
+
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="src/script.js"></script> 
+   </head>
+
+   <body>
+    <div class="column-left">
+      <form class="form-container">
+       <div class="form-title">Integration parameters</div>
+    
+        <div class="form-atribute">$t_{\text{min}}$ [fs]</div>
+        <input class="form-field" type="number" id="tmin_inp" step="1" value="0">
+        <div class="form-atribute">$t_{\text{max}}$ [fs]</div>
+        <input class="form-field" type="number" id="tmax_inp" step="1" value="60">
+      </form>
+    
+     <form class="form-container">
+      <div class="form-title">Laser pulse parameters</div>
+          <div class="form-atribute">$\alpha$</div>
+          <input class="form-field" type="number" id="alpha_inp" min="0" step="0.01" value="0.01">
+          <div class="form-atribute">$t_0$ [fs]</div>
+          <input class="form-field" type="number" id="t0_inp" step="1" value="30">
+      </form>
+    
+     <form class="form-container">
+      <div class="form-title">Parameters of the system</div>
+          <div class="form-atribute">$a_i$</div>
+          <input class="form-field" type="number" id="ai_inp" step="0.1" value="0.4">
+          <div class="form-atribute">$a_f$</div>
+          <input class="form-field" type="number" id="af_inp" step="0.1" value="1.0">
+          <div class="form-atribute">$\mu$ [au]</div>
+          <input class="form-field" type="number" id="mu_inp" step="0.5" value="6">
+          <div class="form-atribute">$\omega_a$ [au]</div>
+          <input class="form-field" type="number" id="wa_inp" step="0.01" value="0.0">
+          <div class="form-atribute">$\omega_b$ [au]</div>
+          <input class="form-field" type="number" id="wb_inp" step="0.01" value="0.02">
+      </form>
+    </div>
+    
+    <div class="column-right">
+      <form>
+          <input class="myButton" type="button" value="Calculate"
+    	onclick="displayResult()"/>
+    </form>
+    
+    <form>
+    	<input class="myButton" type="button" value="Default Values"
+    	onclick=
+    	  "tmin_inp.value=0;
+    	   tmax_inp.value=60;
+    
+    	   ai_inp.value=0.4;
+    	   af_inp.value=1.0;
+    	   alpha_inp.value=0.01;
+    	   t0_inp.value=30;
+    
+    	   mu_inp.value=6;
+    	   wa_inp.value=0;
+    	   wb_inp.value=0.02;
+    	  "/>
+    </form>
+    
+        <div id="pulse" style="width:100%; height:400px;"></div>
+        <div id="populations" style="width:100%; height:400px;"></div>
+    </div>
+   </body>
+ </html>
